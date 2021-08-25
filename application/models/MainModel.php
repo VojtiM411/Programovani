@@ -9,7 +9,28 @@ class MainModel extends CI_Model
     }
     public function vypis()
     {
-        $query = $this->db->query("SELECT nazev, vyucujici, misto, pocet_mist FROM kurz");
+        $query = $this->db->query("SELECT idkurz, nazev, vyucujici, misto, pocet_mist FROM kurz");
         return $query;
+    }
+    function getUsernames()
+    {
+        $this->db->select('jmeno');
+        $records = $this->db->get('zak');
+        $zaci = $records->result_array();
+        return $zaci;
+    }
+    function getUserDetails($postData = array())
+    {
+        $response = array();
+ 
+        if(isset($postData['jmeno']) )
+        {
+          $this->db->select('*');
+          $this->db->where('jmeno', $postData['jmeno']);
+          $records = $this->db->get('zak');
+          $response = $records->result_array();
+        }
+     
+        return $response;
     }
 }

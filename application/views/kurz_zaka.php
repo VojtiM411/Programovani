@@ -14,17 +14,14 @@ if (!$con) {
   die('Could not connect: ' . mysqli_error($con));
 }
 
-mysqli_select_db($con,"ajax_demo");
+mysqli_select_db($con,"arkana");
 $sql="SELECT jmeno, prijmeni FROM zak WHERE id = '".$q."'";
 $result = mysqli_query($con,$sql);
 
 echo "<table>
 <tr>
-<th>ID</th>
 <th>Jméno</th>
 <th>Příjmení</th>
-<th>Ročník</th>
-<th>ID kurzu</th>
 </tr>";
 while($row = mysqli_fetch_array($result)) {
   echo "<tr>";

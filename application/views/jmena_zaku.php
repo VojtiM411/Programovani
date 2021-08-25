@@ -38,5 +38,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             </select>
         </form>
         <hr>
+        <div id="txtHint"><strong>Kurz žáka:</strong></div>
     </div>
 </body>
